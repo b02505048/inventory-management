@@ -315,6 +315,7 @@ export default defineComponent({
         if (seasons.length === 0) continue;
 
         for (let season of seasons) {
+          let exit = false;
           const { season_name, episodes } = season;
 
           // Append the matched seasons
@@ -331,26 +332,15 @@ export default defineComponent({
             // Append the matched episode
             if (episode_name.toLowerCase().includes(this.query.toLowerCase())) {
               filtered.push(title);
+              exit = true;
               break;
             }
           }
+
+          if (exit === true) break;
+          else continue;
         }
       }
-
-      // for (let i = 0; i < this.reactive_titles.length; i++) {
-      //   if (this.reactive_titles[i].seasons.length > 0) {
-      //     this.reactive_titles[i].seasons.forEach((season) => {
-      //       if (
-      //         season["season_name"]
-      //           .toLowerCase()
-      //           .includes(this.query.toLowerCase())
-      //       ) {
-      //         filtered.push(this.reactive_titles[i]);
-      //       }
-      //       return;
-      //     });
-      //   }
-      // }
 
       return filtered;
     },
