@@ -1,6 +1,4 @@
-# Migo Front-End Engineer Test (migo_frontend_test)
-
-A FE test from Migo
+# Migo Inventory Management Challenge
 
 ## Install the dependencies
 ```bash
